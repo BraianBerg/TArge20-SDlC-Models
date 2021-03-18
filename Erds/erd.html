@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 30px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        td, th{
+         border: 1px solid black;
+         padding: 1rem;
+        }
+        th{
+            color: white;
+            background-color: blue;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h2>Colors Database</h2>
+
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">Open ERD</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Colors ERD</h3>
+            <img style="width: 500px ;" src="../img/colordberd.PNG" alt="ERD">
+             <ul><li><a href="https://github.com/BraianBerg/ColorsDB">My colors Database</a></li></ul>
+
+            <h3>ERD Description</h3>
+
+            <h4>Table PrimaryColor</h4>
+                <ul>
+                    <li>The table holds Primary Colors and foreach Primary Color there is Primary key, The Colors are taken form the table and displayed on ui and based on what color is selected then proper Shades are displayed.</li>
+                    <li>Primary Key is the unique identifier foreach color, PrimaryColorName is the color</li>
+                    <li>This tables Primary key is taken form this table and put in to Shades table as an foreing key and is assigned to proper shade.</li>
+                </ul>
+            
+            
+            <h4>Table Shades</h4>
+            <ul>
+                <li>The table holds Shades, foreach Shade there is assigned proper Primary Color, in the ui when the Primary color is selected it will display  all the Shdes assigned to the Primary Color </li>
+                <li>Primary key is the Shades unique identifier, Foreing key is the PrimadyColorId and each Shade has it, and ShadesName is the Shade it self</li>
+                <li>The Primary Key is assigned to  every Shade and every shade allso has Foreing key form Primary Colors tabel, that makes bonds the Primary Color and shade together</li>
+            </ul>
+
+
+        </div>
+    </div>
+             
+    <h4>Primary Color</h4>
+    <table>
+     <tr>
+         <th>Id</th>
+         <th>PrimaryColorname</th>
+     </tr>
+     <tr>
+         <td>1</td>
+         <td>Red</td>
+     </tr>
+     <tr>
+         <td>2</td>
+         <td>Blue</td>
+     </tr>
+     <tr>
+         <td>3</td>
+         <td>Yellow</td>
+     </tr>
+     <tr>
+         <td>4</td>
+         <td>Green</td>
+     </tr>
+    </table>
+
+
+
+    <h4>Shades</h4>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>PrimaryColorId</th>
+            <th>ColorName</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>Azure</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>3</td>
+            <td>Lemon</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>2</td>
+            <td>Cyan</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>1</td>
+            <td>Salmon Pink</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>3</td>
+            <td>Mustard</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>4</td>
+            <td>Honeydew</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>4</td>
+            <td>Jungle Green</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>1</td>
+            <td>Crimson</td>
+        </tr>
+
+    </table>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
